@@ -1,12 +1,16 @@
+import { conectaApi } from "../../conectaApi";
 import "./Colaborador.css"
 import {AiFillCloseCircle} from 'react-icons/ai';
-import { conectaApi } from "../../conectaApi";
 
 
-const Colaborador = ({colaborador}) => {
-        
+const Colaborador = ({colaborador, aoDeletar}) => {
+    //deletando o colaborador
     async function deletarColaborador() {
+        //execuntando prop e passando pai a pai para atualizar a tela principal.
+        aoDeletar();
+        //deletando colaborador no json-server
         await conectaApi.deletaColaborador(colaborador.id)
+
     }
     
     return (

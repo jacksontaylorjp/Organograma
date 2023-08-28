@@ -71,13 +71,6 @@
       "cargo": "Analista",
       "secao": "Manutenção",
       "id": 5
-    },
-    {
-      "nome": "Suênia costa",
-      "imagem": "https://cdn-icons-png.flaticon.com/128/9071/9071196.png",
-      "cargo": "Analista",
-      "secao": "Desenvolvimento",
-      "id": 6
     }
   ]
 }

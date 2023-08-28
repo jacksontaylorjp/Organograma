@@ -1,7 +1,7 @@
 import "./Secao.css"
 import Colaborador from "../Colaborador";
 
-const Secao = ({tituloSecao, corDeFundo, colaboradores}) => {
+const Secao = ({tituloSecao, corDeFundo, colaboradores, aoDeletar}) => {
     return (
         <div className="container-secao" style={{background:corDeFundo}}>
             <h2>{tituloSecao}</h2>
@@ -12,6 +12,7 @@ const Secao = ({tituloSecao, corDeFundo, colaboradores}) => {
                                                         cargo={colaborador.cargo} 
                                                         imagem={colaborador.imagem}
                                                         colaborador={colaborador}
+                                                        aoDeletar={aoDeletar}
                                                     />
                                                         )}
             </div>
