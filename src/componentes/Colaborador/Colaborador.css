@@ -5,7 +5,7 @@
 }
 
 .colaborador .cabecalho {
-  background-color: #f0f0f0;
+  background-color: #d0d0d0;
   border-radius: 10px 10px 0px 0px;
 }
 .colaborador img {
@@ -38,12 +38,9 @@
   padding: 0 16px;
 }
 
-/* .deletar {
+.deletar {
+  color: #212121;
   position: absolute;
   right: -10px;
   top: -10px;
 }
-
-.favoritar {
-  margin-top: 20px;
-} */

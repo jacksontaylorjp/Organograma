@@ -2,20 +2,34 @@ import "./Formulario.css"
 import CampoTexto from "../CampoTexto"
 import ListaSuspensa from "../ListaSuspensa"
 import Botao from "../Botao"
-import Data from "../../db"
 import { useState } from "react"
+import { conectaApi } from "../../conectaApi"
 
-const Formulario = ({aoCadastrar}) => {
-    const {secoes, cargos} = Data();
+//carrendo dados do json-server db.json
+const secoes = await conectaApi.secoes();
+const cargos = await conectaApi.cargos();
+
+
+const Formulario = () => {
 
     const [nome, setNome] = useState("");
-    const [urlImagem, setUrlImagem] = useState("");
+    const [imagem, setImagem] = useState("");
     const [cargo, setCargo] = useState("");
     const [secao, setSecao] = useState("");
 
     const aoSubmeter = (evento) => {
         evento.preventDefault();
-        aoCadastrar({nome, urlImagem, cargo, secao});
+        adicionaColaborador();
+        console.log()
+
+    }
+
+    async function adicionaColaborador() {
+        try {
+            await conectaApi.adicionaColaborador(nome, imagem, cargo, secao);
+        } catch {
+            alert("Não foi possível cadastrar o colaborador.")
+        }
     }
 
     return (
@@ -42,8 +56,8 @@ const Formulario = ({aoCadastrar}) => {
             <CampoTexto  
                 label="Imagem" 
                 placeholder="Informe o url da imagem"
-                valor={urlImagem}
-                aoAlterado={valor => setUrlImagem(valor)}/>
+                valor={imagem}
+                aoAlterado={valor => setImagem(valor)}/>
             <Botao btNome="Cadastrar Colaborador"/>
         </form>
     );
